@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="UTF-8">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Gestão de Indicadores</title>		
+
+	<link rel="StyleSheet" href="css/bootstrap.min.css">
+	<link rel="StyleSheet" href="css/index.css">
+
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+     
+<!-- Gráfico Faturamento Dia X Lojas -->
+
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart1);
+     
+      function drawChart1() {
+        var data = google.visualization.arrayToDataTable([
+          ['Dia', 'Loja 1', 'Loja 2', 'Loja 3'],
+          ['01', 1000, 400, 200],
+          ['02', 1170, 460, 250],
+          ['03', 660, 1120, 300],
+          ['04', 1030, 540, 350]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Nome do Grupo/Empresas',
+            subtitle: 'Comparativo por Dias X Lojas',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('graficoDiasXLojas'));
+
+        chart.draw(data, options);
+      }
+
+<!-- Gráfico Faturamento Dia X Lojas -->
+
+<!-- Gráfico Faturamento Mes X Lojas -->
+
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart2);
+     
+      function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['Meses', 'Loja 1', 'Loja 2', 'Loja 3'],
+          ['01', 1000, 400, 200],
+          ['02', 1170, 460, 250],
+          ['03', 660, 1120, 300],
+          ['04', 1030, 540, 350]
+        ]);
+
+        var options = {
+          chart: {	
+            title: 'Nome do Grupo/Empresas',
+            subtitle: 'Comparativo por Meses X Lojas',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('graficoMesXLojas'));
+
+        chart.draw(data, options);
+      }
+
+<!-- Gráfico Faturamento Mes X Lojas -->
+
+<!-- Gráfico Faturamento Ano X Lojas -->
+
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart3);
+     
+      function drawChart3() {
+        var data = google.visualization.arrayToDataTable([
+          ['Anos', 'Loja 1', 'Loja 2', 'Loja 3'],
+          ['01', 1000, 400, 200],
+          ['02', 1170, 460, 250],
+          ['03', 660, 1120, 300],
+          ['04', 1030, 540, 350]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Nome do Grupo/Empresas',
+            subtitle: 'Comparativo por Ano X Lojas',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('graficoAnoXLojas'));
+
+        chart.draw(data, options);
+      }
+
+<!-- Gráfico Faturamento Ano X Lojas -->
+
+<!-- TOP 5 Produtos dia corrente X Lojas -->
+
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart4);
+     
+      function drawChart4() {
+      var data = google.visualization.arrayToDataTable([
+        ['Produtos', 'Coz. Ref.Buffet Paes', 'Coz. Self Serv. Ref', 'Padaria Pao Frances', 'Pi. Pedaco Pizza Copa',
+         'Self Service Bufet', { role: 'annotation' } ],
+        ['Loja 01', 10, 24, 20, 32, 18, ''],
+        ['Loja 02', 16, 22, 23, 30, 16, ''],
+        ['Loja 03', 28, 19, 29, 30, 12, '']
+      ]);
+
+      var options = {
+        legend: { position: 'top', maxLines: 3 },
+        bar: { groupWidth: '75%' },
+        isStacked: true,
+          bars: 'horizontal'
+      };
+
+        var chart = new google.charts.Bar(document.getElementById('graficoTop5'));
+
+        chart.draw(data, options);
+      }
+
+   
+        
+<!-- TOP 5 Produtos dia corrente X Lojas -->
+
+<!-- Renderização dos gráficos -->
+
+      $(window).resize(function(){
+  	  drawChart1();
+  	  drawChart2();
+  	  drawChart3();
+  	  drawChart4();
+
+
+	});
+
+<!-- Renderização dos gráficos -->
+    </script>
+</head>	
+<body>
+
+<!-- 1.0 CABEÇALHO E MENU - INÍCIO -->
+
+<header>
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+	    <div class="container-fluid">
+	    	<div class="navbar-header">
+	        	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+	        		<span class="icon-bar"></span>
+	          		<span class="icon-bar"></span>
+	          		<span class="icon-bar"></span>
+	        		</button>
+	        	<a href="dia.html" class="navbar-brand logotipo">
+	          		<img src="img/logo-new.png" alt="NewTech">
+	        	</a>
+	      	</div>
+	      	<div class="collapse navbar-collapse" id="menu">
+		        <ul class="nav navbar-nav lista">
+			       	<li><a href="dia.html">Dia</a></li>
+			       	<li><a href="mes.html">Mês</a></li>
+			       	<li><a href="ano.html">Ano</a></li>
+					<!-- Menu DropDown com opções de Comparativo --> 
+					<li class="dropdown">
+			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Comparativos<span class="caret"></span> </a>
+				        <ul class="dropdown-menu">
+				        	
+				        	<li><a href="comparativos_hoje.html" data-toggle="modal" data-target=".bs-comparativoshoje-modal-sm">Hoje</a></li>
+				        	<li><a href="comparativos_dia.html" data-toggle="modal" data-target=".bs-comparativosdias-modal-lg">Dias X Lojas</a></li>
+				        	<li><a href="comparativos_mes.html" data-toggle="modal" data-target=".bs-comparativosmeses-modal-lg">Meses X Lojas</a></li>
+				        </ul>
+			      	</li>	
+			      	<!-- Menu DropDown com opções de Comparativo -->	
+	        		<li><a href="" data-toggle="modal" data-target=".bs-jornada-modal-sm">Jornada</a></li>
+	         		<li><a href="" data-toggle="modal" data-target=".bs-loja-modal-sm">Loja</a></li>
+	        	</ul>
+	        	<ul class="nav navbar-nav navbar-right">
+	        		<li><a href="login.html">Sair</a></li>
+	    		</ul>
+	      	</div>
+	    </div>
+	 </nav>
+
+<!-- 1.1 INÍCIO MODAL COMPARATIVO DIAS -->	
+
+<div class="modal fade bs-comparativosdias-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title" id="exampleModalLabel">Comparativos</h4>
+	</div>
+
+	<div class="modal-body">
+		<div class="container-fluid">
+  			<div class="row">
+  			<!-- 1.1.1 INÍCIO Comparativo de Dias -->
+  				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="panel panel-primary">
+						
+						<div class="panel-heading">
+							<h3 class="panel-title">Comparar Dias</h3>
+						</div>
+						<form>
+							<div class="panel-body">
+								<div class="row col-xs-12 col-sm-12 col-md-6 col-lg-6">	
+
+									<div class="form-check">
+		  								<label class="form-check-label">
+		    							<input class="form-check-input" type="checkbox" value="">
+		    							Loja 1 - São Bernardo do Campo
+		  								</label>
+									</div>
+		    						
+		    						<div class="form-check">
+		  								<label class="form-check-label">
+		    							<input class="form-check-input" type="checkbox" value="">
+		    							Loja 2 - São Caetano do Sul
+		  								</label>
+									</div>
+									<br>
+								</div>	
+
+								<div class="row col-xs-12 col-sm-12 col-md-6 col-lg-6">	
+								
+									<div class="form-group row">
+										<label for="example-date-input" class="col-xs-2 col-form-label">De:</label>
+										<div class="col-xs-10">
+											<input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<label for="example-date-input" class="col-xs-2 col-form-label">Até:</label>
+										<div class="col-xs-10">
+											<input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+										</div>
+									</div>	
+								</div>	
+
+							</div> 
+
+							<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+							<button type="submit" class="btn btn-primary">Confirma</button>
+							</div>
+						</form>	
+					</div> 
+				</div> 
+			<!-- 1.1.1 FIM Comparativo de Dias -->
+
+			</div> <!-- FECHA row -->
+		</div> <!-- FECHA container-fluid -->
+	</div> <!-- FECHA modal-body -->
+
+</div> <!-- FECHA modal-content -->
+</div> <!-- FECHA modal-dialog modal-lg -->
+</div> <!-- FECHA modal fade bs-comparativos-modal-lg -->
+
+<!-- 1.1 FIM MODAL COMPARATIVO DIAS FIM -->	
+<!-- 1.2 INÍCIO MODAL COMPARATIVO MESES -->
+
+<div class="modal fade bs-comparativosmeses-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title" id="exampleModalLabel">Comparativos</h4>
+	</div>
+
+	<div class="modal-body">
+		<div class="container-fluid">
+  			<div class="row">
+  			<!-- 1.1.1 INÍCIO Comparativo de Meses -->
+  				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="panel panel-primary">
+						
+						<div class="panel-heading">
+							<h3 class="panel-title">Comparar Meses</h3>
+						</div>
+						<form>
+							<div class="panel-body">
+								<div class="row col-xs-12 col-sm-12 col-md-6 col-lg-6">	
+
+									<div class="form-check">
+		  								<label class="form-check-label">
+		    							<input class="form-check-input" type="checkbox" value="">
+		    							Loja 1 - São Bernardo do Campo
+		  								</label>
+									</div>
+		    						
+		    						<div class="form-check">
+		  								<label class="form-check-label">
+		    							<input class="form-check-input" type="checkbox" value="">
+		    							Loja 2 - São Caetano do Sul
+		  								</label>
+									</div>
+									<br>
+								</div>	
+
+								<div class="row col-xs-12 col-sm-12 col-md-6 col-lg-6">	
+								
+									<div class="form-group row">
+										<label for="example-date-input" class="col-xs-2 col-form-label">De:</label>
+										<div class="col-xs-10">
+											<input class="form-control" type="month" value="2011-08" id="example-date-input">
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<label for="example-date-input" class="col-xs-2 col-form-label">Até:</label>
+										<div class="col-xs-10">
+											<input class="form-control" type="month" value="2011-08" id="example-date-input">
+										</div>
+									</div>	
+								</div>	
+
+							</div> 
+
+							<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+							<button type="submit" class="btn btn-primary">Confirma</button>
+							</div>
+						</form>	
+					</div> 
+				</div> 
+			<!-- 1.1.1 FIM Comparativo de Meses -->
+
+			</div> <!-- FECHA row -->
+		</div> <!-- FECHA container-fluid -->
+	</div> <!-- FECHA modal-body -->
+
+</div> <!-- FECHA modal-content -->
+</div> <!-- FECHA modal-dialog modal-lg -->
+</div> <!-- FECHA modal fade bs-comparativos-modal-lg -->
+
+
+<!-- 1.2 FIM MODAL COMPARATIVO MESES -->	
+<!-- 1.3 INÍCIO MODAL COMPARATIVO HOJE -->
+
+<div class="modal fade bs-comparativoshoje-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div class="modal-dialog modal-sm" role="document">
+<div class="modal-content">
+
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title" id="exampleModalLabel">Comparativos</h4>
+	</div>
+
+	<div class="modal-body">
+		<div class="container-fluid">
+  			<div class="row">
+  			<!-- 1.1.1 INÍCIO Comparativo de Meses -->
+  				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="panel panel-primary">
+						
+						<div class="panel-heading">
+							<h3 class="panel-title">Comparar Meses</h3>
+						</div>
+						<form>
+							<div class="panel-body">
+								<div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">	
+
+									<div class="form-check">
+		  								<label class="form-check-label">
+		    							<input class="form-check-input" type="checkbox" value="">
+		    							Loja São Bernardo do Campo
+		  								</label>
+									</div>
+		    						
+		    						<div class="form-check">
+		  								<label class="form-check-label">
+		    							<input class="form-check-input" type="checkbox" value="">
+		    							Loja São Caetano do Sul
+		  								</label>
+									</div>
+									<br>
+								</div>	
+							
+							</div> 
+
+							<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+							<button type="submit" class="btn btn-primary">Confirma</button>
+							</div>
+						</form>	
+					</div> 
+				</div> 
+			<!-- 1.1.1 FIM Comparativo de Meses -->
+
+			</div> <!-- FECHA row -->
+		</div> <!-- FECHA container-fluid -->
+	</div> <!-- FECHA modal-body -->
+
+</div> <!-- FECHA modal-content -->
+</div> <!-- FECHA modal-dialog modal-lg -->
+</div> <!-- FECHA modal fade bs-comparativos-modal-lg -->
+
+
+<!-- 1.3 FIM MODAL COMPARATIVO HOJE -->	
+<!-- 1.4 MODAL LOJA INÍCIO -->	
+<div class="modal fade bs-loja-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div class="modal-dialog modal-sm" role="document">
+<div class="modal-content">
+
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title" id="exampleModalLabel">Consolidar Lojas</h4>
+	</div>
+
+	<div class="modal-body">
+		<div class="container-fluid">
+  			<div class="row">
+  				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="panel panel-primary">
+						
+						<div class="panel-heading">
+							<h3 class="panel-title">Consolidar Lojas</h3>
+						</div>
+
+						<div class="panel-body">
+							
+							<form>
+								<div class="form-check">
+	  								<label class="form-check-label">
+	    							<input class="form-check-input" type="checkbox" value="">
+	    							Loja 1
+	  								</label>
+								</div>
+	    						
+	    						<div class="form-check">
+	  								<label class="form-check-label">
+	    							<input class="form-check-input" type="checkbox" value="">
+	    							Loja 2
+	  								</label>
+								</div>
+					
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+									<button type="submit" class="btn btn-primary">Confirma</button>
+								</div>
+							</form>	
+							
+						</div>
+					
+					</div>	
+				</div>	
+			</div>
+		</div>			
+	</div>	
+
+</div>
+</div>
+</div>	
+
+<!-- 1.4 MODAL LOJA FIM -->	
+
+<!-- MODAL JORNADA INÍCIO -->
+
+<div class="modal fade bs-jornada-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div class="modal-dialog modal-sm" role="document">
+<div class="modal-content">
+
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title" id="exampleModalLabel">Jornada da Loja</h4>
+	</div>
+
+	<div class="modal-body">
+		<div class="container-fluid">
+  			<div class="row">
+  				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="panel panel-primary">
+						
+						<div class="panel-heading">
+							<h3 class="panel-title">Jornada de trabalho</h3>
+						</div>
+
+						<div class="panel-body">
+							
+							<form>
+								<div class="form-group row">
+							  <label for="example-time-input" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-form-label">Início:</label>
+							  <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							    <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+							  </div>
+							</div>
+
+							<div class="form-group row">
+							  <label for="example-time-input" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-form-label">Fim:</label>
+							  <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							    <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+							  </div>
+							</div>
+									
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+									<button type="submit" class="btn btn-primary">Confirma</button>
+								</div>
+							</form>	
+							
+						</div>
+					
+					</div>	
+				</div>	
+			</div>
+		</div>			
+	</div>	
+
+</div>
+</div>
+</div>	
+
+
+<!-- MODAL JORNADA FIM -->
+
+
+</header>
+
+<!-- 1.0 CABEÇALHO E MENU - FIM -->
+
+<section>
+	
+	<article>
+  		<div class="container-fluid">
+  			<div class="row conteudo">
+
+<!-- INÍCIO BLOCO 1 - Faturamento do Dia X Lojas -->
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Faturamento do Dia X Lojas</h3>
+						</div>
+
+						<div class="panel-body">
+							
+							<div id="container-fluid">
+								
+								<div id="graficoDiasXLojas" style="width: 100%; min-height: 300px;"></div>
+	
+							</div>
+
+
+						</div>
+
+					</div>
+				</div>
+<!-- FIM BLOCO 1 - Faturamento do Dia X Lojas -->	
+<!-- INÍCIO BLOCO 2 - Faturamento do Mês X Lojasa -->	
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Faturamento do Mês X Lojas</h3>
+						</div>
+						<div class="panel-body">
+
+							<div id="container-fluid">
+								
+								<div id="graficoMesXLojas" style="width: 100%; min-height: 300px;"></div>
+	
+							</div>
+		
+						</div>
+					</div>
+				</div>
+<!-- FIM BLOCO 2 - Faturamento do Ano X Lojas -->	
+<!-- INÍCIO BLOCO 3 - Faturamento do Ano X Lojas -->
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Faturamento do Ano X Lojas</h3>
+						</div>
+						<div class="panel-body">
+
+							<div id="container-fluid">
+								
+								<div id="graficoAnoXLojas" style="width: 100%; min-height: 300px;"></div>
+	
+							</div>
+							
+		
+						</div>
+					</div>
+				</div>
+<!-- FIM BLOCO 3 - Faturamento do Ano X Lojas -->
+<!-- INÍCIO BLOCO 4 - TOP 5 Produtos X Lojas -->
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">TOP 5 Produtos X Lojas</h3>
+						</div>
+						<div class="panel-body">
+
+							<div id="container-fluid">
+								
+								<div id="graficoTop5" style="width: 100%; min-height: 300px;"></div>
+	
+							</div>
+		
+						</div>
+					</div>
+				</div>
+<!-- FIM BLOCO 4 - TOP 5 Produtos X Lojas -->
+			</div>
+		</div>	
+	</article>	
+
+
+</section>
+
+
+<footer>
+	
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+  		<div class="container"> 		
+		   	<h6 class="text-center text-capitalize rodape">NOME DO GRUPO - 1.00 | 1200 | 150</h6>
+	    </div>
+	</nav>	
+
+</footer>
+
+</body>
+</html>

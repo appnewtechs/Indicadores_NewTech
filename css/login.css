@@ -1,0 +1,29 @@
+body{
+	min-height: 100vh; 
+	background-color: #CCC;
+/*	background-image: url('https://unsplash.it/g/1500/800?random'); */
+	background-image: linear-gradient(to bottom, white, #B0C4DE);
+}
+
+.login-form{
+	margin-top: 50vh;
+	padding: 20px 30px;
+	background-color: rgba(51,122,183, .9);  /* #337ab7 COR */
+	color: #FFF;
+
+	transform: translateY(-50%);
+
+	box-shadow: #000 2px 2px 1px;
+	border-radius: 10px 20px;
+}
+
+.login-form h1{
+	margin: 0 0 10px;
+	font-size: 2em;
+}
+
+.login-form h2{
+	margin: 0 0 20px;
+	font-size: 1em;
+}
+
